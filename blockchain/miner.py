@@ -24,7 +24,7 @@ def proof_of_work(last_proof):
 
     print("Searching for next proof")
 
-    proof = 0
+    proof = random.randrange(0, 16**5)
     encoded_proof = str(last_proof).encode()
     last_proof_hash = hashlib.sha256(encoded_proof).hexdigest()
 
