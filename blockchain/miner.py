@@ -31,6 +31,8 @@ def proof_of_work(last_proof):
     while valid_proof(last_proof_hash, proof) is False:
         proof += 1
 
+    end = timer()
+    print(f"{end - start} seconds to find proof")
     return proof
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
