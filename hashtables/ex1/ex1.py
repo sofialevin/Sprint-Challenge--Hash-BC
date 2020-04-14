@@ -9,9 +9,19 @@ from hashtables import (HashTable,
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
 
-    """
-    YOUR CODE HERE
-    """
+    for i in range(len(weights)):
+        hash_table_insert(ht, weights[i], i)
+
+    for i in range(len(weights)): 
+        # For each item, see if limit - weight exists in HT
+        pair = hash_table_retrieve(ht, limit - weights[i])
+        if pair is not None:
+            # If it exists, add it to answer in order of highest to lowest
+            if i > pair:
+                answer = (i, pair)
+            else:
+                answer = (pair, i)
+            return answer
 
     return None
 
